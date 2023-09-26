@@ -1,16 +1,16 @@
-baseURL = "https://danysk.github.io/Template-Hugo-Reveal-Slides"
+baseURL = "https://kelvin-olaiya.github.io/exam-ds-alchemist-presentation"
 languageCode = "en-us"
-title = "A Hugo theme for creating Reveal.js presentations"
+title = "Alchemist Simulation Batch distribution"
 disableKinds = ["sitemap", "RSS"]
 theme = "reveal-hugo"
 publishDir = "build"
 
 # uncomment for browsing at file:///
-# relativeURLs = true
-# uglyURLs = true
+relativeURLs = true
+uglyURLs = true
 
 [author]
-name = "Danilo Pianini"
+name = "Kelvin Olaiya"
 
 # currently only the unsafe mode for goldmark is supported
 [markup.goldmark.renderer]
