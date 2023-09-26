@@ -1,4 +1,4 @@
-baseURL = "https://kelvin-olaiya.github.io/exam-ds-alchemist-presentation"
+baseURL = "https://kelvin-olaiya.github.io/"
 languageCode = "en-us"
 title = "Alchemist Simulation Batch distribution"
 disableKinds = ["sitemap", "RSS"]
