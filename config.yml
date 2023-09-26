@@ -1,0 +1,83 @@
+baseURL: 'https://kelvin-olaiya.github.io'
+languageCode: en-us
+title: Alchemist Simulation Batch distribution
+disableKinds:
+  - sitemap
+  - RSS
+
+theme: reveal-hugo
+
+publishDir: build
+
+# uncomment for browsing at file:/// 
+# relativeURLs: true
+# uglyURLs: true
+
+author:
+  name: Kelvin Olaiya
+
+# currently only the unsafe mode for goldmark is supported
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+  # choose between Hugo compile-time or Highlight.js
+  # syntax highlighting for code inside of code fences    
+  highlight:
+    #codeFences: false  # use highlight.js
+    codeFences: true # use hugo highlighting at compile time
+    style: tango # set a style for hugo highlighting
+
+outputFormats:
+  Reveal:
+    baseName: index
+    mediaType: text/html
+    isHTML: true
+params:
+  reveal_hugo:
+    history: true
+    theme: league
+    highlight_theme: solarized-dark
+    slide_number: true
+    transition: slide
+    transition_speed: fast
+    custom_theme: custom-theme.scss
+    custom_theme_compile: true
+    width: '1440'
+    height: '900'
+    custom_theme_options:
+      targetPath: css/custom-theme.css
+      enableSourceMap: true
+    mermaid:
+      startOnLoad = false
+      theme = "default"
+      fontFamily = "Inconsolata"
+      useMaxWidth = false
+    # gitGraph options break the image generation
+    gitGraph:
+      mainBranchName = 'master'
+      rotateCommitLabel = true
+security:
+  enableInlineShortcodes: false
+  exec:
+    allow:
+      - ^(dart-)?sass(-embedded)?$
+      - ^go$
+      - ^npx$
+      - ^postcss$
+    osEnv:
+      - >-
+        (?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG)$
+  funcs:
+    getenv:
+      - ^HUGO_
+      - ^CI$
+      - GITHUB_TOKEN
+  goTemplates:
+    allowActionJSTmpl: false
+  http:
+    methods:
+      - (?i)GET|POST
+    urls:
+      - .*
