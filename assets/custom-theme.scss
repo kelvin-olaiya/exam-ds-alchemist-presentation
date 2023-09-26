@@ -47,8 +47,8 @@ $headingFont: 'Signika Negative';
 $headingLetterSpacing: normal;
 $headingFontWeight: 600;
 $linkColor: #2690e7;
-$linkColorHover: lighten( $linkColor, 25% );
-$selectionBackgroundColor: lighten( $linkColor, 25% );
+$linkColorHover: lighten($linkColor, 25%);
+$selectionBackgroundColor: lighten($linkColor, 25%);
 
 $heading1Size: 2.5em;
 $heading2Size: 1.6em;
@@ -58,7 +58,14 @@ $heading4Size: 1.0em;
 @import "reveal-js/dist/theme/template/theme";
 
 section.has-light-background {
-	&, h1, h2, h3, h4, h5, h6 {
+
+	&,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		color: #222;
 	}
 }
@@ -81,9 +88,9 @@ section.has-light-background {
 .reveal section img {
 	border: 0em;
 	box-shadow: none;
-    max-width: 100%;
-    max-height: 23em;
-    height: auto;
+	max-width: 100%;
+	max-height: 23em;
+	height: auto;
 	object-fit: contain;
 }
 
@@ -105,50 +112,51 @@ section.has-light-background {
 	margin: .2em .2em .2em;
 }
 
-.gist-it-gist .gist-file .gist-data pre, .gister-gist .gist-file .gist-data pre {
+.gist-it-gist .gist-file .gist-data pre,
+.gister-gist .gist-file .gist-data pre {
 	box-shadow: none !important;
 }
 
 // Nice blockquote and cite
 
 .reveal blockquote {
-	width:90%;
-	margin:0.3em auto;
+	width: 90%;
+	margin: 0.3em auto;
 	font-family: 'Satisfy';
 	font-style: normal;
 	font-size: 1.2em;
 	color: #333333;
-	padding:0.1em 0.1em 0.1em 0.1em;
+	padding: 0.1em 0.1em 0.1em 0.1em;
 	border-color: #039418;
 	border-style: solid;
 	border-width: 0.1em;
 	border-radius: 1em;
-	border-left:0.7em solid #039418 ;
+	border-left: 0.7em solid #039418;
 	line-height: 1.2em;
 	position: relative;
-	background:#EDEDED;
+	background: #EDEDED;
 	text-align: center;
 }
 
-.reveal blockquote::before{
-	font-family:Arial;
+.reveal blockquote::before {
+	font-family: Arial;
 	content: "\201C";
-	color:#039418;
+	color: #039418;
 	font-size: 4em;
 	position: absolute;
 	left: 0.05em;
 	top: 0.25em;
 }
 
-.reveal blockquote p::before{
+.reveal blockquote p::before {
 	content: "";
 	padding-left: 2em;
 }
 
-.reveal blockquote::after{
-	font-family:Arial;
+.reveal blockquote::after {
+	font-family: Arial;
 	content: "\201D";
-	color:#039418;
+	color: #039418;
 	font-size: 4em;
 	position: absolute;
 	bottom: -0.2em;
@@ -169,7 +177,8 @@ section.has-light-background {
 	font-size: 0.7em;
 }
 
-.gist-it-gist .gist-file .gist-data pre, .gister-gist .gist-file .gist-data pre {
+.gist-it-gist .gist-file .gist-data pre,
+.gister-gist .gist-file .gist-data pre {
 	box-shadow: none !important;
 }
 
@@ -190,21 +199,21 @@ section.has-light-background {
 // Keyboard keys
 
 kbd {
-  display: inline-block;
-  min-width: 1em;
-  text-align: center;
-  padding: 0.1em 0.4em;
-  font-size: 0.8em;
-  margin-left: 0.1em;
-  margin-right: 0.2em;
-  color: $mainColor;
-  background-color: $backgroundColor;
-  border-radius: 0.2em;
-  border-style: solid;
-  border-width: 0.1em;
-  box-shadow: 0 0 0.1em $mainColor, 0.1em 0.1em 0em $mainColor;
-  font-family: 'Inconsolata';
-  font-weight: normal;
+	display: inline-block;
+	min-width: 1em;
+	text-align: center;
+	padding: 0.1em 0.4em;
+	font-size: 0.8em;
+	margin-left: 0.1em;
+	margin-right: 0.2em;
+	color: $mainColor;
+	background-color: $backgroundColor;
+	border-radius: 0.2em;
+	border-style: solid;
+	border-width: 0.1em;
+	box-shadow: 0 0 0.1em $mainColor, 0.1em 0.1em 0em $mainColor;
+	font-family: 'Inconsolata';
+	font-weight: normal;
 }
 
 .green {
@@ -226,4 +235,17 @@ kbd {
 .flex {
 	display: flex;
 	justify-content: center;
+}
+
+.callout {
+	margin: 1%;
+	border-left: 10px solid;
+	padding: 1.5%;
+}
+
+.callout-info {
+	border-color: #a1c1f0;
+	background-color: #3e6fb8;
+	color: #b6cef2;
+	border-radius: 15px;
 }

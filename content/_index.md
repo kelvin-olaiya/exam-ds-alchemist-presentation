@@ -11,414 +11,233 @@ aliases = [
 +++
 
 
-# Alchemist Simulation Batch Ditribution
+# Alchemist Simulation Batch Distribution
 
 ## Distributed Systems project
 
----
+{{<academic_author>}}
+{{<academic_year>}}
 
-# Headers
-
-# H1
-## H2
-### H3
-#### H4
+[report](https://kelvin-olaiya.github.io/exam-ds-alchemist-report/)
 
 ---
 
-# Text
+# Introduction
 
-normal text
+## Alchemist
 
-`inline code`
+- Is a chemical-oriented general-purpose simulator
+- Open source
 
-*italic*
-
-**bold**
-
-**_emphasized_**
-
-*__emphasized alternative__*
-
-~~strikethrough~~
-
-[link](http://www.google.com)
+{{< figure src="img/alchemist-meta-model.svg" width="600" caption="Alchemist's meta-model" >}}
 
 ---
 
-# Lists and enums
+# Introduction
 
-1. First ordered list item
-1. Another item
-    * Unordered sub-list.
-    * with two items
-        * another sublist
-            1. With a sub-enum
-            1. yay!
-1. Actual numbers don't matter, just that it's a number
-  1. Ordered sub-list
-1. And another item.
+## Alchemist
+
+- To run one simulation one should:
+  1. Write a simulation configuration file in YAML
+  2. Launch the simulator
+  3. Wait for the completion
+  4. Possibly analyze any exported data
 
 ---
 
-# Inline images
+# The problem
 
-![Alternative text](https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg)
+* Sometimes it may be useful to execute the **_same configuration_** with **_different parameters_**, called **variables**. 
+* The set of simulation differing by their variables constitute a **batch**. 
+* Alchemist provides a way to launch a simulation batch **_sequentially_**.
 
----
-
-## Fallback to shortcodes for resizing
-
-Autoresize specifying
-
-* `max-w` (percent of parent element width) and/or `max-h` (percent of viewport height) as max sizes , and
-* `width` and/or `height` as *exact* sizes (as percent of viewport size)
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" height="20">}}
-
----
-
-## Multi-column slide
-
-{{% multicol %}}{{% col %}}
-Column 1
-{{% /col %}}{{% col %}}
-Column 2
-{{% /col %}}{{% /multicol %}}
-
----
-
-## Tick and Cross
-
-{{% tick %}} This is something good {{% /tick %}}
-{{% cross %}} This is something good {{% /cross %}}
-
----
-
-## Chart.js
-
-{{< chart >}}
-{
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: 'Bar Chart',
-            data: [12, 19, 18, 16, 13, 14],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        maintainAspectRatio: false,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-}
-{{< /chart >}}
-
----
-
-## FontAwesome
-
-<i class="fa-solid fa-mug-hot"></i>
-<i class="fa-solid fa-lemon"></i>
-<i class="fa-solid fa-flask"></i>
-<i class="fa-solid fa-apple-whole"></i>
-<i class="fa-solid fa-bacon"></i>
-<i class="fa-solid fa-beer-mug-empty"></i>
-<i class="fa-solid fa-pepper-hot"></i>
-
----
-
-## Bootstrap 1
-
-<div class="card w-100" >
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/View_of_Cesena_from_the_Abbey.jpg/1920px-View_of_Cesena_from_the_Abbey.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+<div class="callout callout-info">
+Running a simulation can be time-consuming, let alone running a simulation batch.
 </div>
 
 ---
 
-## Bootstrap 2
+# The problem
 
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
+## The need of distribution
 
-<button type="button" class="btn btn-link">Link</button>
+Taking advantage of **_multiple computing resources_** can be a way to **_reduce the time_** necessary to complete 
+the execution of a simulation batch. 
 
 ---
 
-## Low res, plain markdown
+## Functional requirements
 
-![](https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg)
-
----
-
-## Hi res, plain markdown
-
-![](https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg)
-
----
-
-## Low res, default
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" >}}
+* It should be possible to create a **cluster of nodes**, each executing a service exposing
+Alchemist.
+* Alchemist should provide a way to **distribute a batch of simulations** to be executed
+by one or more nodes on a cluster.
+* Each node of a cluster must be up and ready to receive and execute configurations
+of simulations.
+* **None of the distributed simulations should get lost**, meaning that in case of a node
+failure, a **recovery** mechanism should redistribute the simulations assigned to the
+failing node.
+* Once a simulation is computed by a node, results should be made available to the
+user who launched the distribution.
 
 ---
 
-## Hi res, default
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" >}}
+# Design
 
 ---
 
-## Low res, enlarged horizontally
+# Architecture
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" width="100">}}
+{{< figure src="img/Architecture.png" width="500" >}}
 
----
+Main actors:
 
-## Low res, enlarged vertically
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" height="100">}}
-
----
-
-## Hi res, reduced horizontally
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" width="50">}}
+* **AlchemistClient**: Loads and distributes a simulation batch.
+* **AlchemistServer**: Waits for job orders (mainly simulations) to execute. 
+* **Registry**: management of all the information that guarantees the correct functioning of the system
+* **Message Broker**: responsible for the communication between nodes in the cluster.
 
 ---
 
-## Hi res, reduced vertically
+# Domain structure:
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" height="50">}}
-
----
-
-## Hi res, reducing maximum expansion horizontally
-
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" width="50">}}
+{{< figure src="img/Design-structure.png" >}}
 
 ---
 
-## Hi res, reducing maximum expansion vertically
+## Domain structure (1/3)
 
-{{< figure src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" height="50">}}
+* **Cluster** is an entity representing the collection of nodes that are currently connected forming a cluster. Through the cluster it is possible to obtain a **_Dispatcher_**, specifying the complexity that the nodes in the dispatcher should be able to handle. 
 
----
+* **ClusterNode** represent a server node to which jobs can be distributed.
 
-{{< slide background-image="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" >}}
+* **Dispatcher** contains a subset of the nodes in the cluster. It is responsible for accepting **_SimulationBatches_** and distribute them across subset of nodes. Distribution is made according to a **_DispatchStrategy_**
 
-# Large images as background
-## (May affect printing)
-
----
-
-{{< slide background-image="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" state="blur-animation-light"  transition="fade-in fade-out" >}}
-
-# Also available with blur and custom transitions
-## (May affect printing)
+* **DispatchStrategy** it models the strategy with which the work load gets distributed to a collection of nodes (e.g. *round-robin*).
 
 ---
 
-# $$\LaTeX{}$$
+## Domain structure (2/3)
 
+* **Complexity** describes the complexity in terms of ram usage and memory occupation for the simulations in a batch.
 
-Inline equations like $E=mc^2$
+* **SimulationBatch** represents a simulation batch with its complexity. It is composed of a simulation configuration and a collection of simulation initializers.
 
-$$\frac{n!}{k!(n-k)!} = \binom{n}{k}$$  
+* **SimulationConfig** contains the general batch information such as the end step and end time of the simulations and a loader from which simulation instances will be created. **_Dependencies_** are files that must be made available to all servers in order to execute the simulation correctly. 
 
 ---
 
-# Code snippets
+## Domain structure (3/3)
 
+* **SimulationInitializer** contains a combination of variables values that will be used to create a simulation instance. For every simulation initializer in a simulation batch corresponds a job for a node in the cluster.
 
-```kotlin
-val x = pippo
-```
+* **BatchResult** models the result of a simulation batch that have been submitted via a **_Dispatcher_**. It gives information on the total number of errors, if any, that have occurred while executing the simulation batch and a utility method to save all the distributed export files locally. 
 
-```go
-package main
- 
-import "fmt"
- 
-func main() {
-    fmt.Println("Hello world!")
+* **SimulationResult** models the result of a single job.
+
+---
+
+# Main Interactions
+
+{{% multicol %}}{{% col %}}
+{{< figure src="img/Simulation_distribution_interactions.png" caption="Simulation distribution" >}}
+{{% /col %}}{{% col %}}
+{{< figure src="img/ClusterFaultDetector.png" caption="Fault detector">}}
+{{% /col %}}{{% /multicol %}}
+
+---
+
+# Behavior
+
+{{% multicol %}}{{% col %}}
+{{< figure src="img/AlchemistServer-state.png" caption="Alchemist server" >}}
+{{% /col %}}{{% col %}}
+{{< figure src="img/AlchemistClient-state.png" caption="Alchemist client">}}
+{{% /col %}}{{% /multicol %}}
+
+---
+
+# Implementation details
+
+## Technologies
+
+* **Etcd**: a distributed, reliable and strongly consistent key-value store. It has been used to store the most important data for the functioning of the system (The registry)
+
+{{< figure src="img/Registry-KVStore.png" >}}
+
+---
+
+# Implementation details
+
+## Technologies
+
+* **RabbitMQ**: an open-source message broker based on the Advanced Message Queuing Protocol (AMQP) for reliable communication.
+
+{{< figure src="img/CommunicationQueues.png" >}}
+
+---
+
+# Implementation details
+
+## Technologies
+
+* **Protobuf**: Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data.
+
+```proto
+message Simulation {
+  string simulationID = 1;
+  bytes environment = 2;
+  bytes exports = 3;
+  string jobDescriptor = 4;
 }
 ```
 
 ---
 
-# Tables
+# Testing
 
-Colons can be used to align columns.
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the 
-raw Markdown line up prettily. You can also use inline Markdown.
+* A series of test have been written to assess whether the system complies with the project requirements.
+* Main challenges (as with distributed systems in general): dealing with **asynchronous behavior** and **non-determinism**. 
+* For this the Kotest testing framework came in handy.
 
 ---
 
-# Quotes
+# Testing
 
-> Multiple
-> lines
-> of
-> a
-> single
-> quote
-> get
-> joined
+A test example:
 
-> Very long one liners of Markdown text automatically get broken into a multiline quotation, which is then rendered in the slides.
-
----
-
-# Fragments
-
-* {{< frag c="pluto" >}}
-* {{< frag c="pluto" >}}
-* {{< frag c="pluto" >}}
-
----
-
-# Graphs via Gravizo
-
-{{< gravizo "Example Gravizo graph" >}}
-  digraph G {
-    aize ="4,4";
-    main [shape=box];
-    main -> parse [weight=8];
-    parse -> execute;
-    main -> init [style=dotted];
-    main -> cleanup;
-    execute -> { make_string; printf}
-    init -> make_string;
-    edge [color=red];
-    main -> printf [style=bold,label="100 times"];
-    make_string [label="make a string"];
-    node [shape=box,style=filled,color=".7 .3 1.0"];
-    execute -> compare;
-  }
-{{< /gravizo >}}
-
----
-
-# Graphs via mermaid.js
-
-```mermaid
-classDiagram
-  Class01 <|-- AveryLongClass : Coosssl
-  Class03 *-- Class04
-  Class05 o-- Class06
-  Class07 .. Class08
-  Class09 --> C2 : Where am i?
-  Class09 --* C3
-  Class09 --|> Class07
-  Class07 : equals()
-  Class07 : Object[] elementData
-  Class01 : size()
-  Class01 : int chimp
-  Class01 : int gorillasaaaaaaaaaaaaaaaaaaaaaa
-  Class08 <--> C2: Cool label
+```kotlin
+"Simulation are correctly distributed" {
+        startServers(serverConfigFile, SERVERS_TO_LAUNCH).use {
+            val cluster = ClusterImpl(registry)
+            awaitServerJoin(cluster, SERVERS_TO_LAUNCH, 10.seconds)
+            startClient(clientConfigFile).use {
+                until(20.seconds) {
+                    registry.simulations().size == 1
+                }
+                val simulationID = registry.simulations().first()
+                registry.simulationJobs(simulationID) shouldHaveSize SIMULATION_BATCH_SIZE
+            }
+        }
+    }
 ```
 
+Kotest functions for non-determinism:
+
+- `eventually`
+- `continually`
+- `until`
 
 ---
 
+# Future works
 
-# Graphs via mermaid.js with options
-
-```mermaid
-%%{init: {'theme':'default', 'themeVariables': { 'fontSize': '.34em', 'fontFamily': 'verdana' }}}%%
-classDiagram
-  Class01 <|-- AveryLongClass : Coosssl
-  Class03 *-- Class04
-  Class05 o-- Class06
-  Class07 .. Class08
-  Class09 --> C2 : Where am i?
-  Class09 --* C3
-  Class09 --|> Class07
-  Class07 : equals()
-  Class07 : Object[] elementData
-  Class01 : size()
-  Class01 : int chimp
-  Class01 : int gorillasaaaaaaaaaaaaaaaaaaaaaa
-  Class08 <--> C2: Cool label
-```
-
-
----
-# Graphs via mermaid.js 2
-
-```mermaid
-graph TD
-  SL([fa:fa-user second level]) --> L[solution]
-  L -- solution email --> db[(mysql)]
-  db --> X[automatic] 
-  X --> CM([fa:fa-users first level])
-  db -- Email --> c([customer support]);
-```
+* Implementation of a cluster monitoring & management **dashboard**
+* Improvement on the **fault detection routine**
+* New dispacth strategies based also on the **heterogeneity of the computing nodes** and the **complexity of a simulation batch**
 
 ---
 
-# Graphs via mermaid.js 3
+# DEMO
 
-```mermaid
-gitGraph
-  commit id: "Initialize project"
-  commit id: "Make some changes"
-  branch develop
-  checkout develop
-  commit
-  commit
-  checkout main
-  merge develop
-  commit
-  commit
-```
-
----
-
-# Import of shared slides
-
-{{% import path="shared-slides/devops/devops-intro.md" %}}
-
+[repository](https://github.com/kelvin-olaiya/exam-ds-demo)
