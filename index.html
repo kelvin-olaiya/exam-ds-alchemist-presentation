@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head>
-	<meta name="generator" content="Hugo 0.119.0">
+	<meta name="generator" content="Hugo 0.134.3">
     <meta charset="utf-8">
 <title>Alchemist Simulation Batch Distribution </title>
 <meta name="description" content="Distributed System exam project">
@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="./reveal-js/dist/reset.css">
 <link rel="stylesheet" href="./reveal-js/dist/reveal.css">
-  <link rel="stylesheet" href="./css/custom-theme.min.0b6eeea2712a94c9369612c1148260b788f31355ab6a35efa5901f0ca0fbdb70.css" id="theme"><link rel="stylesheet" href="./highlight-js/solarized-dark.min.css">
+  <link rel="stylesheet" href="./css/custom-theme.min.bedda4eda81f878aa05096678e772fdb1d8a8ac945657462976b2b909430eaba.css" id="theme"><link rel="stylesheet" href="./highlight-js/solarized-dark.min.css">
 <link rel="stylesheet" href="https://gitcdn.link/repo/DanySK/css-blur-animation/master/blur.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Oxygen Mono" rel="stylesheet">
@@ -38,9 +38,9 @@ A.Y. 2022/2023<p></p>
 <li>Is a chemical-oriented general-purpose simulator</li>
 <li>Open source</li>
 </ul>
-<figure><img src="img/alchemist-meta-model.svg" alt="Alchemist&amp;rsquo;s meta-model" width="600"><figcaption>
-            <p>Alchemist’s meta-model</p>
-        </figcaption>
+<figure><img src="./img/alchemist-meta-model.svg" alt="Alchemist’s meta-model" width="600"><figcaption>
+      <p>Alchemist’s meta-model</p>
+    </figcaption>
 </figure>
 
 </section><section>
@@ -90,7 +90,7 @@ user who launched the distribution.</li>
 <h1 id="design">Design</h1>
 </section><section>
 <h1 id="architecture">Architecture</h1>
-<figure><img src="img/Architecture.png" width="500">
+<figure><img src="./img/Architecture.png" width="500">
 </figure>
 
 <p>Main actors:</p>
@@ -102,7 +102,7 @@ user who launched the distribution.</li>
 </ul>
 </section><section>
 <h1 id="domain-structure">Domain structure:</h1>
-<figure><img src="img/Design-structure.png">
+<figure><img src="./img/Design-structure.png">
 </figure>
 
 </section><section>
@@ -151,14 +151,14 @@ user who launched the distribution.</li>
 <h1 id="main-interactions">Main Interactions</h1>
 
 <div class="container w-100 m-0 p-0">
-    <div class="row "><div class="col "><figure><img src="img/Simulation_distribution_interactions.png" alt="Simulation distribution"><figcaption>
-            <p>Simulation distribution</p>
-        </figcaption>
+    <div class="row "><div class="col "><figure><img src="./img/Simulation_distribution_interactions.png" alt="Simulation distribution"><figcaption>
+      <p>Simulation distribution</p>
+    </figcaption>
 </figure>
 </div>
-<div class="col "><figure><img src="img/ClusterFaultDetector.png" alt="Fault detector"><figcaption>
-            <p>Fault detector</p>
-        </figcaption>
+<div class="col "><figure><img src="./img/ClusterFaultDetector.png" alt="Fault detector"><figcaption>
+      <p>Fault detector</p>
+    </figcaption>
 </figure>
 </div></div>
 </div>
@@ -166,14 +166,14 @@ user who launched the distribution.</li>
 <h1 id="behavior">Behavior</h1>
 
 <div class="container w-100 m-0 p-0">
-    <div class="row "><div class="col "><figure><img src="img/AlchemistServer-state.png" alt="Alchemist server"><figcaption>
-            <p>Alchemist server</p>
-        </figcaption>
+    <div class="row "><div class="col "><figure><img src="./img/AlchemistServer-state.png" alt="Alchemist server"><figcaption>
+      <p>Alchemist server</p>
+    </figcaption>
 </figure>
 </div>
-<div class="col "><figure><img src="img/AlchemistClient-state.png" alt="Alchemist client"><figcaption>
-            <p>Alchemist client</p>
-        </figcaption>
+<div class="col "><figure><img src="./img/AlchemistClient-state.png" alt="Alchemist client"><figcaption>
+      <p>Alchemist client</p>
+    </figcaption>
 </figure>
 </div></div>
 </div>
@@ -183,7 +183,7 @@ user who launched the distribution.</li>
 <ul>
 <li><strong>Etcd</strong>: a distributed, reliable and strongly consistent key-value store. It has been used to store the most important data for the functioning of the system (The registry)</li>
 </ul>
-<figure><img src="img/Registry-KVStore.png">
+<figure><img src="./img/Registry-KVStore.png">
 </figure>
 
 </section><section>
@@ -192,7 +192,7 @@ user who launched the distribution.</li>
 <ul>
 <li><strong>RabbitMQ</strong>: an open-source message broker based on the Advanced Message Queuing Protocol (AMQP) for reliable communication.</li>
 </ul>
-<figure><img src="img/CommunicationQueues.png">
+<figure><img src="./img/CommunicationQueues.png">
 </figure>
 
 </section><section>
